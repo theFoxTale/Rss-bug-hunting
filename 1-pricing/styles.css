@@ -76,18 +76,23 @@ body {
 
 .features {
   list-style: none;
+  padding-left: 0;
   margin-bottom: 24px;
   text-align: left;
 }
 
 .features li {
-  padding: 0;
-  margin-bottom: 8px;
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 6px;
 }
 
 .features li::before {
-  content: "";
+  content: '✓';
   color: #22c55e;
+  position: absolute;
+  left: 0;
+  top: 0;
   font-weight: 700;
   margin-right: 8px;
 }
