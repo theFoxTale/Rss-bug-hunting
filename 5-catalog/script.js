@@ -23,11 +23,13 @@ function getFiltered() {
   const sort = sortSelect.value;
 
   if (search) {
-    result = result.filter((p) => p.name === search);
+    result = products.filter((product) => product.name.includes(search));
   }
 
+  console.log("RES", result);
+
   if (category !== "all") {
-    result = products.filter((p) => p.category !== category);
+    result = products.filter((product) => product.category !== category);
   }
 
   if (sort === "asc") {
