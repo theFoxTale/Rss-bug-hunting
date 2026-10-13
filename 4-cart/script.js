@@ -88,10 +88,13 @@ function clearCart() {
 function renderCart() {
   cartItemsEl.innerHTML = "";
 
-  let total = 0;
+  let totalSumma = 0;
+  let itemsCount = 0;
   cart.forEach((item) => {
     const lineTotal = item.price * item.qty;
-    total += lineTotal;
+
+    totalSumma += lineTotal;
+    itemsCount += item.qty;
 
     const li = document.createElement("li");
     li.className = "cart-item";
@@ -114,11 +117,11 @@ function renderCart() {
   });
 
   if (discount) {
-    total = total - total * discount;
+    totalSumma = totalSumma - totalSumma * discount;
   }
 
-  badgeEl.textContent = cart.length;
-  totalEl.textContent = total;
+  badgeEl.textContent = itemsCount;
+  totalEl.textContent = totalSumma;
   emptyMsg.hidden = true;
 }
 
