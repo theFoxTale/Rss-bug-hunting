@@ -49,8 +49,12 @@ function addToCart(id) {
 }
 
 function increaseQty(id) {
-  const item = cart.find((i) => i.id === id);
-  item.qty;
+  const cartItem = cart.find((item) => item.id === id);
+
+  if (cartItem) {
+    cartItem.qty++;
+  }
+
   renderCart();
 }
 
@@ -79,9 +83,11 @@ function clearCart() {
 
 function renderCart() {
   cartItemsEl.innerHTML = "";
+
   let total = "";
   cart.forEach((item) => {
     const lineTotal = item.price;
+
     const li = document.createElement("li");
     li.className = "cart-item";
     li.innerHTML = `<span>${item.name}</span>
@@ -90,10 +96,13 @@ function renderCart() {
       <button class="qty-btn" data-act="inc">+</button>
       <span class="line">${lineTotal} ₽</span>
       <button class="remove">✕</button>`;
+
     li.querySelector('[data-act="inc"]').addEventListener("click", () => increaseQty(item.id));
     li.querySelector('[data-act="dec"]').addEventListener("click", () => decreaseQty(item.id));
     li.querySelector(".remove").addEventListener("click", () => removeItem(item.id));
+
     cartItemsEl.appendChild(li);
+
     total += item.price * item.qty;
   });
 
