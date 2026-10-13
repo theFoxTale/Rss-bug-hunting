@@ -42,12 +42,25 @@ function clearCompleted() {
 }
 
 function getVisibleTasks() {
+  if (currentFilter === "active") {
+    return tasks.filter((task) => !task.done);
+  }
+
+  if (currentFilter === "done") {
+    return tasks.filter((task) => task.done);
+  }
+
   return tasks;
 }
 
 function updateCounter() {
-  const activeTasks = tasks.filter((task) => !task.done);
-  counter.textContent = "Активных задач: " + activeTasks.length;
+  if (currentFilter === "done") {
+    const doneTasks = tasks.filter((task) => task.done);
+    counter.textContent = "Выполненных задач: " + doneTasks.length;
+  } else {
+    const activeTasks = tasks.filter((task) => !task.done);
+    counter.textContent = "Активных задач: " + activeTasks.length;
+  }
 }
 
 function render() {
