@@ -100,6 +100,8 @@ function renderCart() {
 
 function renderEmptyCart() {
   totalEl.textContent = "0";
+  badgeEl.textContent = "0";
+
   emptyMsg.hidden = false;
   clearBtn.hidden = true;
   cartItemsEl.hidden = true;
