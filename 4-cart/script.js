@@ -131,12 +131,13 @@ function renderFilledCart() {
       <span class="line">${lineTotal} ₽</span>
       <button class="remove">✕</button>`;
 
-    if (item.qty === 1) {
-      li.querySelector('[data-act="dec"]').classList.add("hidden");
+    const decBtn = li.querySelector('[data-act="dec"]');
+    if (decBtn && item.qty === 1) {
+      decBtn.disabled = true;
     }
 
     li.querySelector('[data-act="inc"]').addEventListener("click", () => increaseQty(item.id));
-    li.querySelector('[data-act="dec"]').addEventListener("click", () => decreaseQty(item.id));
+    decBtn.addEventListener("click", () => decreaseQty(item.id));
     li.querySelector(".remove").addEventListener("click", () => removeItem(item.id));
 
     cartItemsEl.appendChild(li);

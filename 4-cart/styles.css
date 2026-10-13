@@ -123,6 +123,18 @@ body {
   line-height: 1;
 }
 
+.qty-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #f1f5f9;
+  color: #94a3b8;
+  border-color: #e2e8f0;
+}
+
+.qty-btn:disabled:hover {
+  background: #f1f5f9;
+}
+
 .qty {
   min-width: 24px;
   text-align: center;
@@ -188,10 +200,6 @@ body {
   color: #334155;
   font-weight: 600;
   cursor: pointer;
-}
-
-.hidden {
-  display: none;
 }
 
 .error {
