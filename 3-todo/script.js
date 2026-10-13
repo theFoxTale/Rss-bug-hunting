@@ -95,6 +95,10 @@ function render() {
 addBtn.addEventListener("click", addTask);
 clearBtn.addEventListener("click", clearCompleted);
 
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") addTask();
+});
+
 filterButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     filterButtons.forEach((b) => b.classList.remove("active"));
