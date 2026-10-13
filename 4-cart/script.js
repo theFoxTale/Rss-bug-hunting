@@ -18,14 +18,16 @@ const promoBtn = document.getElementById("promo-btn");
 const clearBtn = document.getElementById("clear-btn");
 
 function renderProducts() {
-  products.forEach((p) => {
+  products.forEach((product) => {
     const card = document.createElement("div");
     card.className = "product";
-    card.innerHTML = `<h3>${p.name}</h3><p>${p.price} ₽</p>`;
+    card.innerHTML = `<h3>${product.name}</h3><p>${product.price} ₽</p>`;
+
     const btn = document.createElement("button");
     btn.textContent = "В корзину";
-    btn.addEventListener("click", addToCart);
+    btn.addEventListener("click", () => addToCart(product.id));
     card.appendChild(btn);
+
     productsEl.appendChild(card);
   });
 }
