@@ -14,7 +14,6 @@ function addTask() {
   const text = input.value.trim();
 
   if (!text) {
-    errorEl.textContent = "Введите текст задачи";
     errorEl.hidden = false;
     input.value = "";
   } else {
