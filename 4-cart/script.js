@@ -59,8 +59,12 @@ function increaseQty(id) {
 }
 
 function decreaseQty(id) {
-  const item = cart.find((i) => i.id === id);
-  item.qty--;
+  const cartItem = cart.find((item) => item.id === id);
+
+  if (cartItem && cartItem.qty > 1) {
+    cartItem.qty--;
+  }
+
   renderCart();
 }
 
@@ -96,6 +100,10 @@ function renderCart() {
       <button class="qty-btn" data-act="inc">+</button>
       <span class="line">${lineTotal} ₽</span>
       <button class="remove">✕</button>`;
+
+    if (item.qty === 1) {
+      li.querySelector('[data-act="dec"]').classList.add("hidden");
+    }
 
     li.querySelector('[data-act="inc"]').addEventListener("click", () => increaseQty(item.id));
     li.querySelector('[data-act="dec"]').addEventListener("click", () => decreaseQty(item.id));
