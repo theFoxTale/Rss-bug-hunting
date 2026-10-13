@@ -21,13 +21,12 @@ function getFiltered() {
 
   const search = searchInput.value.toUpperCase();
   if (search) {
-    result = products.filter((product) => product.name.toUpperCase().includes(search));
-
+    result = result.filter((product) => product.name.toUpperCase().includes(search));
   }
 
   const category = categorySelect.value;
   if (category !== "all") {
-    result = products.filter((product) => product.category === category);
+    result = result.filter((product) => product.category === category);
   }
 
   const sort = sortSelect.value;
