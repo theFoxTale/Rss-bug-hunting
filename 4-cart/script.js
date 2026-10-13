@@ -78,7 +78,7 @@ function removeItem(id) {
 }
 
 function applyPromo() {
-  if (promoInput.value === "SALE10") {
+  if (promoInput.value.trim() === "SALE10") {
     discount = 0.1;
     errorEl.hidden = true;
   } else {
