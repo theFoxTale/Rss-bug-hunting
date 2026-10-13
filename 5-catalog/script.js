@@ -27,7 +27,7 @@ function getFiltered() {
 
   const category = categorySelect.value;
   if (category !== "all") {
-    result = products.filter((product) => product.category !== category);
+    result = products.filter((product) => product.category === category);
   }
 
   const sort = sortSelect.value;
