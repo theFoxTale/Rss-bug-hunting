@@ -81,7 +81,6 @@ body {
 
 .cart h2 {
   font-size: 20px;
-  margin-bottom: 16px;
 }
 
 .badge {
@@ -97,6 +96,7 @@ body {
 
 .cart-items {
   list-style: none;
+  margin-top: 16px;
 }
 
 .cart-item {
@@ -121,6 +121,18 @@ body {
   cursor: pointer;
   font-size: 16px;
   line-height: 1;
+}
+
+.qty-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #f1f5f9;
+  color: #94a3b8;
+  border-color: #e2e8f0;
+}
+
+.qty-btn:disabled:hover {
+  background: #f1f5f9;
 }
 
 .qty {
@@ -151,6 +163,10 @@ body {
   display: flex;
   gap: 8px;
   margin: 16px 0;
+}
+
+.promo.is-hidden {
+  display: none;
 }
 
 .promo input {
@@ -184,4 +200,10 @@ body {
   color: #334155;
   font-weight: 600;
   cursor: pointer;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 14px;
+  margin: 8px 0;
 }
