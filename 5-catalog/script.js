@@ -41,12 +41,15 @@ function getFiltered() {
 
 function render() {
   const items = getFiltered();
-  items.forEach((p) => {
+
+  items.forEach((product) => {
     const card = document.createElement("div");
     card.className = "card";
-    card.innerHTML = `<h3>${p.name}</h3><p class="cat">${p.category}</p><p class="price">$${p.price}</p>`;
+    card.innerHTML = `<h3>${product.name}</h3><p class="cat">${product.category}</p><p class="price">$${product.price}</p>`;
+
     grid.appendChild(card);
   });
+
   countEl.textContent = products.length;
 }
 
@@ -57,3 +60,5 @@ sortSelect.addEventListener("change", render);
 resetBtn.addEventListener("click", () => {
   searchInput.value = "";
 });
+
+render();
