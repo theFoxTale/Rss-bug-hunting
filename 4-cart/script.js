@@ -13,8 +13,11 @@ const cartItemsEl = document.getElementById("cart-items");
 const badgeEl = document.getElementById("badge");
 const totalEl = document.getElementById("total");
 const emptyMsg = document.getElementById("empty-msg");
+
+const promoContainer = document.getElementById("promo");
 const promoInput = document.getElementById("promo-input");
 const promoBtn = document.getElementById("promo-btn");
+
 const errorEl = document.getElementById("error");
 const clearBtn = document.getElementById("clear-btn");
 
@@ -92,7 +95,18 @@ function clearCart() {
 
 function renderCart() {
   cartItemsEl.innerHTML = "";
+  (cart.length === 0) ? renderEmptyCart() : renderFilledCart();
+}
 
+function renderEmptyCart() {
+  totalEl.textContent = "0";
+  emptyMsg.hidden = false;
+  clearBtn.hidden = true;
+  cartItemsEl.hidden = true;
+  promoContainer.classList.add("is-hidden");
+}
+
+function renderFilledCart() {
   let totalSumma = 0;
   let itemsCount = 0;
   cart.forEach((item) => {
@@ -127,7 +141,11 @@ function renderCart() {
 
   badgeEl.textContent = itemsCount;
   totalEl.textContent = totalSumma;
+
   emptyMsg.hidden = true;
+  clearBtn.hidden = false;
+  cartItemsEl.hidden = false;
+  promoContainer.classList.remove("is-hidden");
 }
 
 promoBtn.addEventListener("click", applyPromo);
