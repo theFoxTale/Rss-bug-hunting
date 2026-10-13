@@ -15,6 +15,7 @@ const totalEl = document.getElementById("total");
 const emptyMsg = document.getElementById("empty-msg");
 const promoInput = document.getElementById("promo-input");
 const promoBtn = document.getElementById("promo-btn");
+const errorEl = document.getElementById("error");
 const clearBtn = document.getElementById("clear-btn");
 
 function renderProducts() {
@@ -74,8 +75,12 @@ function removeItem(id) {
 }
 
 function applyPromo() {
-  if ((promoInput.value = "SALE10")) {
+  if (promoInput.value === "SALE10") {
     discount = 0.1;
+    errorEl.hidden = true;
+  } else {
+    discount = 0;
+    errorEl.hidden = (promoInput.value === "");
   }
   renderCart();
 }

@@ -189,3 +189,9 @@ body {
 .hidden {
   display: none;
 }
+
+.error {
+  color: #dc2626;
+  font-size: 14px;
+  margin: 8px 0;
+}
